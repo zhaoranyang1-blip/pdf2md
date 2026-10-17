@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PDF → Markdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header><div class="brand"><span class="mark">↯</span><span>pdf<span class="accent">.md</span></span></div><span class="tag">LOCAL CONVERTER</span></header>
+    <section class="hero"><p class="eyebrow">DOCUMENT WORKFLOW / 01</p><h1>把 PDF 变成<br><em>可编辑的 Markdown。</em></h1><p class="sub">拖入文件，自动提取文本、识别标题与列表。<br>文件只在本机处理，转换结果随手下载。</p></section>
+    <section class="workspace">
+      <div id="dropzone" class="dropzone"><input id="fileInput" type="file" accept="application/pdf"><div class="upload-icon">↑</div><h2>拖放 PDF 到这里</h2><p>或者 <button id="browse" type="button">浏览文件</button></p><small>最大 50 MB · 仅支持 .pdf</small></div>
+      <label class="math-option"><input id="recognizeMath" type="checkbox" checked> 尝试识别公式并转换为可编辑的 LaTeX <span title="适用于带文本层的 PDF；复杂公式仍建议校对">ⓘ</span></label>
+      <div id="status" class="status" hidden></div>
+      <div id="result" class="result" hidden><div class="result-head"><div><span class="pill">转换完成</span><strong id="fileName"></strong><span id="pageCount"></span></div><button id="download" class="download">下载 .md <span>↓</span></button></div><pre id="preview"></pre></div>
+    </section>
+    <footer><span>文本提取由 PyMuPDF 驱动</span><span>运行在你的设备上 · 不上传文件</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
