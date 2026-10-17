@@ -1,0 +1,3 @@
+Flask>=3.0,<4
+PyMuPDF>=1.24
+gunicorn>=22,<24; platform_system != "Windows"
